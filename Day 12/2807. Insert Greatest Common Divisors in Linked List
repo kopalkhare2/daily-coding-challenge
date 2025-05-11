@@ -1,0 +1,14 @@
+from math import gcd  
+
+class Solution:
+    def insertGreatestCommonDivisors(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        current = head
+
+        while current and current.next:
+            common_div = gcd(current.val, current.next.val)
+            new_node = ListNode(common_div)
+            new_node.next = current.next
+            current.next = new_node
+            current = new_node.next
+
+        return head
