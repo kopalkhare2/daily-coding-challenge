@@ -1,0 +1,7 @@
+class Solution:
+    def judgeSquareSum(self, c: int) -> bool:
+        squares = set(i * i for i in range(int(c**0.5) + 1))
+        for a2 in squares:
+            if (c - a2) in squares:
+                return True
+        return False
