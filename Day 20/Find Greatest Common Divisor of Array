@@ -1,0 +1,20 @@
+from typing import List
+
+class Solution:
+    def findGCD(self, nums: List[int]) -> int:
+        # Helper function using Euclidean algorithm
+        def compute_gcd(x: int, y: int) -> int:
+            while x % y != 0:
+                x, y = y, x % y
+            return y
+
+        min_val = float('inf')
+        max_val = float('-inf')
+
+        for num in nums:
+            if num < min_val:
+                min_val = num
+            if num > max_val:
+                max_val = num
+
+        return compute_gcd(max_val, min_val)
