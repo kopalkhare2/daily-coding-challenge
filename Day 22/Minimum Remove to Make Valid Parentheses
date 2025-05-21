@@ -1,0 +1,33 @@
+class Solution {
+public:
+    string minRemoveToMakeValid(string s) {
+        stack<int> st;
+
+        // First pass: remove unmatched ')'
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] == '(') {
+                st.push(i);
+            } else if (s[i] == ')') {
+                if (!st.empty()) {
+                    st.pop();
+                } else {
+                    s[i] = '*'; // mark for removal
+                }
+            }
+        }
+
+        // Second pass: remove unmatched '('
+        while (!st.empty()) {
+            s[st.top()] = '*';
+            st.pop();
+        }
+
+        // Build result without marked characters
+        string result = "";
+        for (char c : s) {
+            if (c != '*') result += c;
+        }
+
+        return result;
+    }
+};
