@@ -1,44 +1,49 @@
-# LeetCode Solutions - README
+#LeetCode Solutions - README
 
-This repository includes solutions for common LeetCode problems. Below are explanations for two questions with the logic and approach used to solve them.
+This repository contains my solutions to some frequently encountered LeetCode problems. Below, I’ve shared detailed explanations for two problems, including the reasoning behind the approaches I used to solve them.
 
-## ✅ Problem 1: 169. Majority Element
+##✅ Problem 1: 169. Majority Element
 
-### 🔗 Problem Link:
-[Majority Element](https://leetcode.com/problems/majority-element/)
+###📄 Problem Overview:
 
-### 📄 Problem Statement:
-Given an array `nums` of size `n`, return the **majority element**. The majority element is the element that appears more than `n / 2` times. It is guaranteed that a majority element always exists in the array.
+You’re given an array nums containing n elements. Your task is to find the element that appears more than half the time in the array — this is known as the majority element. The problem guarantees that such an element always exists.
 
-### 💡 Logic and Approach:
-We use the **Boyer-Moore Voting Algorithm**, which is efficient for finding the majority element in linear time and constant space.
+###💡 How I Approached It:
 
-#### 🔁 Steps:
-1. Initialize `count = 0` and `candidate = None`.
-2. Traverse the array:
-   - If `count == 0`, assign the current number as the `candidate`.
-   - If the current number is the same as the candidate, increment `count`.
-   - Otherwise, decrement `count`.
-3. At the end of traversal, the `candidate` is guaranteed to be the majority element.
+To solve this efficiently, I used the Boyer-Moore Voting Algorithm. This clever algorithm lets you identify the majority element in a single pass using constant extra space.
 
-## ✅ Problem 2: 1249. Minimum Remove to Make Valid Parentheses
+Step-by-step Explanation:
+	1.	Keep two variables: a candidate for the majority element and a count to track its dominance.
+	2.	Iterate over each number in the array:
+	•	If count is zero, pick the current number as the new candidate.
+	•	If the current number matches the candidate, increase count.
+	•	Otherwise, decrease count.
+	3.	By the end of this process, the candidate will be the majority element.
 
-### 🔗 Problem Link:
-[Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)
+This works because every time you encounter a number different from your candidate, you “cancel out” one occurrence of the candidate. Since the majority element appears more than half the time, it will always remain by the end.
 
-### 📄 Problem Statement:
-Given a string `s` containing `'('`, `')'`, and lowercase letters, remove the **minimum number** of parentheses to make the input string valid. A valid string is:
-- Empty or contains only lowercase letters.
-- Can be expressed as `A(B)` or `AB` where both `A` and `B` are valid.
 
-### 💡 Logic and Approach:
-This is solved using a **stack** and a two-pass approach:
+##✅ Problem 2: 1249. Minimum Remove to Make Valid Parentheses
 
-#### 🔁 Steps:
-1. **First Pass (Left to Right)**:
-   - Use a stack to track the indices of unmatched `'('`.
-   - If a `')'` is found with no matching `'('`, mark its index for removal.
-2. **Second Pass (Right to Left)**:
-   - Remove any remaining unmatched `'('` in the stack by marking them.
-3. **Final Step**:
-   - Build the result string, skipping characters that were marked for removal.
+###📄 Problem Overview:
+
+Given a string that contains lowercase letters and parentheses ( and ), the goal is to remove the fewest parentheses possible to make the string valid. A valid string means:
+	•	It contains only lowercase letters or,
+	•	Parentheses are balanced and properly nested.
+
+###💡 How I Approached It:
+
+I tackled this with a two-pass technique using a stack to keep track of unmatched parentheses.
+
+Step-by-step Explanation:
+	1.	First pass (left to right):
+	•	Walk through the string, pushing the indices of each '(' onto a stack.
+	•	When you encounter a ')', check the stack:
+	•	If the stack isn’t empty, pop one '(' off because you found a match.
+	•	If it is empty, mark this ')' as invalid (because it has no matching '(').
+	2.	Second pass (right to left):
+	•	After the first pass, any indices left in the stack represent unmatched '('. Mark these for removal.
+	3.	Build the result:
+	•	Construct a new string by skipping all the characters marked for removal.
+
+This approach ensures only the minimum number of parentheses are removed while keeping the rest of the string intact and valid.
