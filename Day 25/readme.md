@@ -25,7 +25,7 @@ To rotate the array in-place with O(1) space:
 ## 🌀 Problem 2: Rotate Array
 
 ### 🔗 Link:
-[LeetCode 189: Rotate Array](https://leetcode.com/problems/rotate-array/)
+[LeetCode 225: Rotate Array](https://leetcode.com/problems/rotate-array/)
 
 ### 🧠 Problem Summary:
 Given an array `nums`, rotate the array to the right by `k` steps, where `k` is non-negative.
