@@ -1,4 +1,4 @@
-# 📘 LeetCode Problem Write-Up
+# 📘 LeetCode Problem's Approach
 
 Hey there! 👋  
 This file explains how I approached and solved two LeetCode problems. I’ve broken down the logic and thought process behind each solution - the idea behind it.
