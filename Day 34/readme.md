@@ -1,4 +1,4 @@
-🚀 Day 31 - Dr. G. Viswanathan Challenge
+Day 31 - Dr. G. Viswanathan Challenge
 
 ## ✅ Problem 1: Length of Last Word
 
