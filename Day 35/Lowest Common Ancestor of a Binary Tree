@@ -1,0 +1,17 @@
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        // Base case: if root is null, or if root is one of p or q
+        if (root == NULL || root == p || root == q) return root;
+
+        // Search in the left and right subtrees
+        TreeNode* left = lowestCommonAncestor(root->left, p, q);
+        TreeNode* right = lowestCommonAncestor(root->right, p, q);
+
+        // If p and q found in left and right subtrees, root is LCA
+        if (left != NULL && right != NULL) return root;
+
+        // Otherwise, return the non-null child (if any)
+        return left != NULL ? left : right;
+    }
+};
