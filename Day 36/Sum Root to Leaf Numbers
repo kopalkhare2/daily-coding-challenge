@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int sumNumbers(TreeNode* root, int current = 0) {
+        if (!root) return 0;
+
+        current = current * 10 + root->val;
+
+        // If leaf node, return the current path value
+        if (!root->left && !root->right)
+            return current;
+
+        // Recursively calculate for left and right subtrees
+        return sumNumbers(root->left, current) + sumNumbers(root->right, current);
+    }
+};
