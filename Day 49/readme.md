@@ -1,17 +1,3 @@
-Here’s how your GitHub-style project folder with the README.md would look:
-
-leetcode-solutions/
-├── single-number/
-│   └── Solution.cpp      # (your accepted code)
-├── count-primes/
-│   └── Solution.cpp      # (your accepted code)
-└── README.md             # (combined description, logic & approach)
-
-
-⸻
-
-📄 README.md
-
 # 🧠 LeetCode Practice Solutions
 
 This repository contains clean and optimized solutions to selected LeetCode problems, including the approach and logic behind each solution.
